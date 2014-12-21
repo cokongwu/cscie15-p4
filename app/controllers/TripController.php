@@ -12,15 +12,10 @@ class TripController extends BaseController {
 
 	public function postTrip(){
 		$destination = Input::get("destination");
-		$depart = Input::get("depart");
-		$return = Input::get("return");
+		$depart = date("d-m-Y", strtotime(Input::get("depart")));
+		$return = date("d-m-Y", strtotime(Input::get("return")));
 		$check = Trip::whereId("$destination")
 			->whereDepart("$depart")->whereReturn("$return")->get();
-		if($check != "[]") {
-			updateTrip();
-			return Redirect::intended("/trip")->with("flash_message",
-				"Trip updated successfully");
-		}
 
 		$trip = new Trip;
 		$trip->depart = $depart;
@@ -30,7 +25,7 @@ class TripController extends BaseController {
 
 		// try/catch for the save
 		try {
- 			$trip->destination()->associate($temp);
+ 			$trip->destination() = $temp;
 			$trip->save();
 		}
 		catch (Exception $e) {
@@ -40,10 +35,6 @@ class TripController extends BaseController {
 
 		return Redirect::intended("/trip")->with("flash_message",
 			"Great success!! Trip added.");
-	}
-
-	private function updateTrip(){
-		
 	}
 
 	public function deleteTrip(){
