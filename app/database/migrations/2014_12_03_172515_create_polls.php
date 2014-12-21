@@ -25,11 +25,16 @@ class CreatePolls extends Migration {
 			$table->integer("tally4")->unsigned();
 			$table->integer("trip5")->unsigned();
 			$table->integer("tally5")->unsigned();
-			$table->foreign("trip1")->references("id")->on("trips");
-			$table->foreign("trip2")->references("id")->on("trips");
-			$table->foreign("trip3")->references("id")->on("trips");
-			$table->foreign("trip4")->references("id")->on("trips");
-			$table->foreign("trip5")->references("id")->on("trips");
+			$table->foreign("trip1")->references("id")->on("trips")
+				->onUpdate("cascade")->onDelete("cascade");
+			$table->foreign("trip2")->references("id")->on("trips")
+				->onUpdate("cascade")->onDelete("cascade");
+			$table->foreign("trip3")->references("id")->on("trips")
+				->onUpdate("cascade")->onDelete("cascade");
+			$table->foreign("trip4")->references("id")->on("trips")
+				->onUpdate("cascade")->onDelete("cascade");
+			$table->foreign("trip5")->references("id")->on("trips")
+				->onUpdate("cascade")->onDelete("cascade");
 		});
 	}
 
