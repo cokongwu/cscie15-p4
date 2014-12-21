@@ -5,7 +5,7 @@
 		@yield("title")
 	</title>
 	<meta charset="utf-8">
-	<link rel="stylesheet" href="./css/mycss.css">
+	<link rel="stylesheet" href="{{ URL::asset('./css/mycss.css') }}">
 	@yield("styles")
 </head>
 <body>
