@@ -17,20 +17,19 @@ class TripController extends BaseController {
 		$check = Trip::whereId("$destination")
 			->whereDepart("$depart")->whereReturn("$return")->get();
 
-		$trip = new Trip;
-		$trip->depart = $depart;
-		$trip->return = $return;
 		$temp = Destination::find($destination);
-
+		$trip = new Trip;
+		$trip->depart = "$depart";
+		$trip->return = "$return";
+		$trip->destination()->associate($temp);
 
 		// try/catch for the save
 		try {
- 			$trip->destination() = $temp;
 			$trip->save();
 		}
 		catch (Exception $e) {
 			return Redirect::intended("/trip")->with("flash_message", 
-				"Failed to add trip; please try again.");
+				"$trip->destination destination, Failed to add trip; please try again.");
 		}
 
 		return Redirect::intended("/trip")->with("flash_message",
