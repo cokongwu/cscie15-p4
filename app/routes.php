@@ -13,42 +13,18 @@
 
 Route::get('/', function()
 {
-	return View::make('index');
+	return View::make("index");
 });
 
 // *************** Users ****************
 
-Route::get('/signup',
-	// view form for sign up
-	// send to the user controller. use a filter
-	array(
-		"before" => "guest",
-		"uses" => "UserController@getSignup"
-	)
-);
+Route::get('/signup', "UserController@getSignup");
 
-Route::post('/signup',
-	array(
-		"before" => "csrf",
-		"uses" => "UserController@postSignup"
-	)
-);
+Route::post('/signup', "UserController@postSignup");
 
-Route::get('/login',
-	array(
-		"before" => "guest",
-		"uses" => "UserController@getLogin"
-	)
-// form for log-in, if user signed in already skips to index
-);
+Route::get('/login', "UserController@getLogin");
 
-Route::post('/login',
-	array(
-		"before" => "csrf",
-		"uses" => "UserController@postLogin"
-	)
-	// process log-in 
-);
+Route::post('/login', "UserController@postLogin");
 
 Route::get('/logout', function() {
 
@@ -60,63 +36,29 @@ Route::get('/logout', function() {
 
 // ************ DESTINATIONS ***********
 
-Route::get('/destination', 
-	array(
-		"before" => "auth", 
-		"uses" => "DestinationController@getDestination"
-	)
-	// show form for adding destination
-);
+Route::get('/destination', "DestinationController@getDestination");
 
-Route::post('/destination',
-	array(
-		"before" => "csrf", 
-		"uses" => "DestinationController@postDestination"
-	)
-	// process destination form
-);
+Route::post('/destination', "DestinationController@postDestination");
 
-Route::post('/deleteDestination', 
-	array(
-		"before" => "csrf", 
-		"uses" => "DestinationController@deleteDestination"
-	)
-	// process the removal form
-);
+Route::post('/deleteDestination', "DestinationController@deleteDestination");
+
 // *************** Trips *******************
 
-Route::get('/trip', 
-	array(
-		"before" => "auth",
-		"uses" => "TripController@getTrip"
-	)
-);
+Route::get('/trip', "TripController@getTrip");
 
-Route::post('/trip', 
-	array(
-		"before" => "auth",
-		"uses" => "TripController@postTrip"
-	)
-	// process trip
-);
+Route::post('/trip', "TripController@postTrip");
+
+Route::post('/deleteTrip', "TripController@deleteTrip");
 
 // ***************** Poll ********************
 
-Route::get('/poll', 
-	array(
-		"before" => "auth", 
-		"uses" => "PollController@getPoll"
-	)
-);
+Route::get('/poll', "PollController@getPoll");
 
-Route::post('/poll', 
-	array(
-		"before" => "auth",
-		"uses" => "PollController@postPoll"
-	)
-	// process poll
-);
+Route::post('/poll', "PollController@postPoll");
 
+Route::post('/deletePoll', "PollController@deletePoll");
+
+// ******************** Other ****************
 Route::get("mysql-test", function() {
 
 	# Print environment

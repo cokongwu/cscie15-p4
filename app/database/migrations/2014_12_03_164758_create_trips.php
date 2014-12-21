@@ -17,8 +17,8 @@ class CreateTrips extends Migration {
 			$table->increments("id");
 			$table->date("depart")->nullable(false);
 			$table->date("return")->nullable(false);
-			$table->string("destination", 128)->nullable(false);
-			$table->foreign("destination")->references("name")
+			$table->unsignedInteger("destination_id")->nullable(false);
+			$table->foreign("destination_id")->references("id")
 				->on("destinations");
 			$table->timestamps();
 		});

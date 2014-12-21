@@ -7,12 +7,12 @@ class Trip extends Eloquent{
 	}
 
 	public function polls(){
-
+	//	return $this->belongsToMany("Polls");
 	}
 
 	public function scopeSelectOpts(){
 		$selectVals[''] = "Please Select";
-		$selectVals += $this->lists("destination", "id");
+		$selectVals += $this->lists("destination_id", "id");
 		return $selectVals;
 	}
 
@@ -21,7 +21,7 @@ class Trip extends Eloquent{
 		$collection = $this->all();
 		$showVals = $showVals."<table>";
 		foreach($collection->all() as $trip){
-			$showVals = $showVals."<tr>\n\t<td>Destination: ".$trip->destination."</td>\n";
+			$showVals = $showVals."<tr>\n\t<td>Destination: ".$trip->destination_id."</td>\n";
 			$showVals = $showVals."\t<td>Departs: ".$trip->depart."</td>\n";
 			$showVals = $showVals."\t<td>Returns: ".$trip->return."</td>\n</tr>";
 		}

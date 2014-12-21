@@ -29,7 +29,7 @@ class UserController extends BaseController {
 		Auth::login($user);
 
 		return Redirect::to("/")->with("flash_message", 
-			"Welcome to Buddy Planner!");
+			"Welcome back!");
 	}
 
 	public function getLogin() {

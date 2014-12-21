@@ -2,7 +2,11 @@
 
 class PollController extends BaseController {
 	
-	public function getPoll(){
+	public function __construct() {
+        $this->beforeFilter('auth');
+    }
+
+    public function getPoll(){
 		$tripSelect = Trip::selectOpts();
 		$pollSelect = Poll::selectOpts();
 		$pollDisplay = Poll::display();

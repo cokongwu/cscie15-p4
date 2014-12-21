@@ -2,7 +2,11 @@
 
 class DestinationController extends BaseController {
 
-	public function getDestination()
+	public function __construct() {
+        $this->beforeFilter('auth');
+    }
+
+    public function getDestination()
 	{
 		$destSelect = Destination::selectOpts();
 		$destDisplay = Destination::display();

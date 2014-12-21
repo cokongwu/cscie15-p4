@@ -4,7 +4,7 @@
 		public function trip(){
 			// destination is in a one to many relationship
 			// with trip
-			return $this->hasMany("Trip", "destination", "name");
+			return $this->hasMany("Trip");
 		}
 
 		public function scopeSelectOpts(){

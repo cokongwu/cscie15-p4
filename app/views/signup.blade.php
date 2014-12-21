@@ -4,6 +4,10 @@
 Sign-up Page
 @stop
 
+@section("navigation")
+		<li> <a href="/">Welcome Page</a> </li>
+@stop
+
 @section("content")
 
 <h3>Sign up</h3>
