@@ -1,0 +1,80 @@
+FEATURES:
+
+Add destination
+Edit destination
+Remove destination
+Add trip
+Edit trip
+Vote for trip
+Remove trip
+View Poll results
+Add user
+Edit user
+Remove user
+
+DATABASE:
+
+users
+	id: increments
+	email: (unique) string	// required, unique makes it an index
+	password: string		// required
+	group: (FK) integer		// required
+	remember_token: string 100
+	created_at
+	updated_at
+
+groups
+	id: increments
+	owner: (FK) integer 	// user id
+	created_at
+	updated_at
+
+destinations
+	id: increments
+	name: (unique) string 128	// required
+	airport_code: char 4	// required
+	image: string 128	// image hyperlink
+	conv_rate: float	// currency conversion rate                            
+	created_at
+	updated_at
+
+trips
+	id: increments	
+	depart: date
+	return: date
+	destination: (FK) string 128	// destination name
+	created_at
+	updated_at
+
+polls
+	id: increments
+	trip1: integer
+	trip2: integer
+	trip3: integer
+	trip4: integer
+	trip5: integer
+	created_at
+	updated_at
+
+PIVOT TABLE
+poll_tr
+	trip_id (FK)
+	poll_id (FK)
+
+PAGES:
+
+Add destination form
+Edit destination form
+remove destination confirmation
+Add trip form
+Edit trip form
+Vote for trip form
+Remove trip cofirmation
+View poll results page
+Add user form
+Edit user form
+Remove user confirmation
+
+ROUTES:
+
+// get route for each and a post route for each page that has a form

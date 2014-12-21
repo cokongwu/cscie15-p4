@@ -1,0 +1,112 @@
+fieldset {border: 1px solid green; margin-left: 20px; margin-right: 40px; margin-top: 10px;}
+legend {color: magenta;}
+h1{color: orange;}
+h3{text-align: center;}
+
+#button {margin-top: 20px; border: 1px solid orange; color: green;}
+
+body{
+	background-color: #999966;
+	font-family: Tahoma, Arial, Helvetica, sans-serif;
+
+	margin-left: auto;
+	margin-right: auto;
+}
+#main{
+	width: 80%;
+	background: #FFFFFF;
+	border: 1px solid #FFFFFF;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 0;
+	padding-top: 0;
+}
+ul{
+	list-style: none;
+}
+#wrapper{
+	width: 100%;
+	margin: 0 auto;
+}
+#header{
+	text-align: center;
+	margin-top: 0;
+	margin-left: 0;
+	margin-right: 0;
+	padding-top: 0;
+	padding-left: auto;
+	padding-right: auto;
+	border: 2px solid orange;
+	color: white;
+	background-color: #003300;
+}
+#header img{
+	float: left;
+}
+#message{
+
+}
+#catNav{
+	float: left;
+	clear: none;
+	font-size: smaller;
+	padding: 0;
+	margin-left: 0;
+	margin-right: 5%;
+	width: 10%;
+	border: none;
+}
+#content{
+	background-color: #003300;
+	color: white;
+	border: 2px solid orange;
+	width: 55%;
+	margin-left: 15%;
+	padding-top: 0;
+	padding-left: 1%;
+	padding-right: 1%;
+	padding-bottom: 1em;
+}
+#options{
+	font-size: smaller;
+	float: right;
+	clear: none;
+	width: 25%;
+	padding: 0;
+	margin-right: 0;
+	margin-left: 5%;
+	border: none;
+
+}
+#footer{
+	font-size: x-small;
+	width: 100%;
+}
+
+/*******category navigation************/
+#catNav ul, ul ul, #catNav li ul, #catNav li li{
+	color: maroon;
+	margin: 0;
+	padding: .5em;
+}
+#catNav a{
+	display: block;
+	padding: 0;
+	margin-left: 0;
+}
+#catNav .youarehere:link, #catNav .youarehere:visited{
+		color: maroon;
+		text-decoration: none;
+}
+#catNav a:hover{
+	background-color: silver;
+}
+
+/**********text***********/
+#content a:hover{
+	color: maroon;
+}
+hr{
+	clear: both;
+	visibility: hidden;	
+}
