@@ -12,4 +12,4 @@ The demo link is here: http://screencast.com/t/RipoThAkWqa . It seemed that I ma
 
 
 ## Outside Sources
-None. I had trouble finding APIs to use with airport code look-ups and flight price look-ups.
+I used a couple packages that were recommended to us in class, laravel/laravel, paste/pre, and barryvdh/laravel-debugbar. I also used the api from http://jqueryui.com/datepicker/ to handle date inputs for the trips. I had trouble finding APIs to use with airport code look-ups and flight price look-ups.
