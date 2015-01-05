@@ -15,9 +15,8 @@
 
 		public function scopeDisplay(){
 			$showVals = "<h3>The current destinations are</h3>\n";
-			$collection = $this->all();
 			$showVals = $showVals."<table>";
-			foreach($collection->all() as $destination){
+			foreach($this->all() as $destination){
 				$showVals = $showVals."<tr>\n\t<td>Name: ".$destination->name."</td>\n";
 				$showVals = $showVals."\t<td>Airport Code: ".$destination->airport_code."</td>\n";
 				$showVals = $showVals."\t<td>Image: ".$destination->image."</td>\n";

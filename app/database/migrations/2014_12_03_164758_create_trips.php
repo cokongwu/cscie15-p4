@@ -18,6 +18,7 @@ class CreateTrips extends Migration {
 			$table->date("depart")->nullable(false);
 			$table->date("return")->nullable(false);
 			$table->unsignedInteger("destination_id")->nullable(false);
+			$table->unsignedInteger("group_id")->nullable(false);
 			$table->foreign("destination_id")->references("id")
 				->on("destinations")->onUpdate("cascade")->onDelete("cascade");
 			$table->timestamps();

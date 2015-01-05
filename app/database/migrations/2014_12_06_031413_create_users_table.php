@@ -17,8 +17,6 @@ class CreateUsersTable extends Migration {
 			$table->increments("id");
 			$table->string("email")->unique()->nullable(false);
 			$table->string("password")->nullable(false);
-			$table->unsignedInteger("group")->nullable(false);
-//			$table->foreign("group")->references("id")->on("groups");
 			$table->string("remember_token",100);
 			$table->timestamps();
 		});

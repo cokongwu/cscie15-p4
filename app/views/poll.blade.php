@@ -35,5 +35,5 @@ Voting
 @stop
 
 @section("content")
-
+	<p> {{ $pollDisplay }} </p>
 @stop

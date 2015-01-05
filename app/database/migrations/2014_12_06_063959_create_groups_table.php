@@ -15,8 +15,11 @@ class CreateGroupsTable extends Migration {
 		//
 		Schema::create("groups", function($table) {
 			$table->increments("id");
+			$table->string("name", 40)->unique()->nullable(false);
 			$table->unsignedInteger("owner");
-			$table->foreign("owner")->references("id")->on("users");
+			$table->foreign("owner")->references("id")->on("users")
+				->onUpdate("cascade")->onDelete("cascade");
+			$table->timestamps();
 		});
 	}
 
